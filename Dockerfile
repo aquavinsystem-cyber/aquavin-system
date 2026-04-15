@@ -1,7 +1,9 @@
-FROM tomcat:9.0-jdk17-openjdk-slim
+# Gagamit tayo ng mas bagong image para sa Java 21/25 compatibility
+FROM tomcat:10.1-jdk21-openjdk-slim
+
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Kinokopya natin ang buong web folder kasama na ang WEB-INF/classes
+# I-copy ang web folder kasama ang classes
 COPY web/ /usr/local/tomcat/webapps/ROOT/
 
 EXPOSE 8080
